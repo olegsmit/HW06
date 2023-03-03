@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 
-
 JPEG_IMAGES = []
 JPG_IMAGES = []
 PNG_IMAGES = []
