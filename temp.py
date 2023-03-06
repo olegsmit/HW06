@@ -1,33 +1,13 @@
 import os
-import re
 from pathlib import Path
 from normalize import normalize
 
-dir_suf_dict = {"Images": ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.ico', '.bmp', '.webp', '.svg'],
-                "Documents": [".md", ".epub", ".txt", ".docx", ".doc", ".ods", ".odt", ".dotx", ".docm", ".dox",
-                              ".rvg", ".rtf", ".rtfd", ".wpd", ".xls", ".xlsx", ".ppt", ".pptx", ".csv", ".xml"],
-                "Archives": [".iso", ".tar", ".gz", ".7z", ".dmg", ".rar", ".zip"],
-                "Audio": [".aac", ".m4a", ".mp3", "ogg", ".raw", ".wav", ".wma"],
-                "Video": [".avi", ".flv", ".wmv", ".mov", ".mp4", ".webm", ".vob", ".mpg", ".mpeg", ".3gp"],
-                "PDF": [".pdf"],
-                "HTML": [".html", ".htm", ".xhtml"],
-                "EXE_MSI": [".exe", ".msi"],
-                "PYTHON": [".py", ".pyw"]}
+dir_suf_dict = {"Images": [".jpg", ".jpeg", ".png", ".svg"],
+                "Video": [".avi", ".mov", ".mp4", ".mkv"],
+                "Audio": [".mp3", "ogg", ".arm", ".wav"],
+                "Documents": [".txt", ".docx", ".doc", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx"],
+                "Archives": [".tar", ".gz", ".zip"]}
 
-
-def normalize(name: str) -> str:
-    CYRILLIC_SYMBOLS = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ'
-    TRANSLATION = (
-    "a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
-    "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "u", "ja", "je", "ji", "g")
-
-    trans = {}
-    for c, l in zip(CYRILLIC_SYMBOLS, TRANSLATION):
-        trans[ord(c)] = l
-        trans[ord(c.upper())] = l.upper()
-    t_name = name.translate(trans)
-    t_name = re.sub(r'\W', '_', t_name)
-    return t_name
 
 
 def move_file(dir_p: Path, path_file: Path):
@@ -151,3 +131,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
