@@ -48,7 +48,7 @@ def unpack(file):
                     print(f'{file} - не вдалося розпакувати!')
                     foldder_for_file.rmdir()
                     return None
-                break
+
 
 
 def scan(folder: Path):
