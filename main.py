@@ -63,8 +63,10 @@ def scan(folder: Path):
             continue
         else:
             normalize(item.name)
-            unpack(item)
-            move_file(item)
+            if item.suffix in [".zip", ".gz", ".tar"]:
+                unpack(item)
+            else:
+                move_file(item)
 
 
 
