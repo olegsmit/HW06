@@ -26,10 +26,7 @@ def move_file(file: Path):
 
 
 def rm_dir(folder_for_rm: Path):
-    # for folder in folder_for_rm.glob('**'):
-    #     folders_to_del.append(folder)
-    # del_folders = folders_to_del[::-1]
-    # for folder in del_folders[0:-1]:
+
     try:
         folder_for_rm.rmdir()
     except OSError:
@@ -37,6 +34,7 @@ def rm_dir(folder_for_rm: Path):
 
 
 def unpack(file):
+
     for key, value in CATEGORIES.items():
         if key == 'archives':
             if file.suffix in CATEGORIES[key]:
@@ -70,49 +68,6 @@ def scan(folder: Path):
 
 
 
-
-    # for item in folder.iterdir():
-    #     if item.is_dir():
-    #         if item.name not in ('archives', 'video', 'audio', 'documents', 'images'):
-    #             rm_dir(item)
-    #         continue
-
-
-
-
-    # rm_dir(folder)
-
-
-
-# print(type(path))
-
-# def move_file(target_path: Path, file: Path):
-#     file.replace(target_path / file.name)
-#
-#
-# for item in path.glob('**/*.*'):
-#     move_file(path, item)
-# #
-# for item in path.glob('**/*.*'):
-#     print(item.suffix, item.stem)
-#
-# folders_to_del = []
-#
-# for item in path.glob('**'):
-#     folders_to_del.append(item)
-#
-# for item in folders_to_del[::-1]:
-#     try:
-#         item.rmdir()
-#     except Exception as e:
-#         print(e)
-
-# print(folders_to_del[::-1])
-
-
-# CATEGORIES = {'audio': ['.mp3', '.aiff']}
-
-#
 if __name__ == '__main__':
 
     try:
